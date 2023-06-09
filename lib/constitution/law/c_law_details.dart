@@ -76,7 +76,7 @@ class _ConstitutionLawDetailsState extends State<ConstitutionLawDetails> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => Chat(
-                        chatID: id,
+                        chatID: id, initialMessage: "I want to learn more about ${widget.title}.",
                       ),
                     ),
                   );
@@ -88,6 +88,7 @@ class _ConstitutionLawDetailsState extends State<ConstitutionLawDetails> {
               ),
             ),
             const Text(
+              
               'Learn More',
               style: TextStyle(
                 fontSize: 16,

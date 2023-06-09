@@ -10,9 +10,11 @@ import 'package:my_lawyer/models/message.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Chat extends StatefulWidget {
-  Chat({key, required this.chatID});
+  Chat({key, required this.chatID, this.initialMessage = ""});
 
   final BASE_API_URL = 'https://my-lawyer-api.sarwin.repl.co/';
+
+  String initialMessage;
 
   String chatID;
   List<Message> messages = [];
@@ -48,6 +50,10 @@ class _ChatState extends State<Chat> {
         widget.messages.add(Message(content: message));
       }
       widget.messages = widget.messages.reversed.toList();
+
+      if(widget.initialMessage != ""){
+        sendMessage(widget.initialMessage); 
+    }
     });
   }
 
@@ -189,7 +195,7 @@ class _ChatState extends State<Chat> {
       var body = json.encode({
         'chatID': widget.chatID,
         'message': raw_msg,
-        'debug': 'true',
+        'debug': 'false',
       });
 
       // Send POST request
@@ -227,6 +233,7 @@ class _ChatState extends State<Chat> {
   @override
   void initState() {
     super.initState();
+
     loadMessages();
   }
 
