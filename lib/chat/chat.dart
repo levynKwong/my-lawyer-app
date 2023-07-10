@@ -12,7 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 class Chat extends StatefulWidget {
   Chat({key, required this.chatID, this.initialMessage = ""});
 
-  final BASE_API_URL = 'https://my-lawyer-api.sarwin.repl.co/';
+  final BASE_API_URL = 'https://my-lawyer-api.levynkwong2.repl.co/';
 
   String initialMessage;
 
